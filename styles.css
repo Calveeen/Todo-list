@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #AB918C;
+    color: #494F5E;
+    height: 3000px;
+}
+
+h2{
+    text-align: center;
+    margin-top: 32px;
+    text-decoration: underline;
+    font-size: 32px;
+}
+
+/* Header stuff */
+header{
+    padding: 16px 32px;
+    text-align: center;
+    border: 3px solid #494F5E;
+    width: 80%;
+    margin: 32px auto 0 auto;
+    border-radius: 16px;
+    background-color: #84A5AB;
+}
+
+header > h1{
+    color: #494F5E;
+    font-size: 48px;
+}
+
+header > .plus-icon{
+    position: fixed;
+    top: 16px;
+    left: 0;
+}
+
+header > .plus-icon > img{
+    width: 32px;
+}
+
+header > .plus-icon > img:hover{
+    cursor: pointer;
+}
+
+/* Main content container and children */
+
+.content{
+    background-color: #84A5AB;
+    width: 80%;
+    border: 3px solid #494F5E;
+    margin: 32px auto 0 auto;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.project{
+    position: relative;
+}
+
+.content > .project > h3{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.content > .project h4{
+    text-decoration: underline;
+}
+
+.task-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.task{
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+}
+
+.checkbox{
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.pr-high > h4, .pr-med > h4, .pr-low > h4{
+    margin: 8px 0 8px 0;
+}
