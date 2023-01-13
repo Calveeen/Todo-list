@@ -4,300 +4,228 @@
     box-sizing: border-box;
 }
 
-body{
-    color: #494F5E;
-    background-color: rgb(171, 145, 140);
+/*General styles*/
+:root{
+    --primary-color: #171c21;
+    --secondary-color: #eef2f6;
+    --text-color: #0d0d0d;
+    --general-font: "Karla", sans-serif;
+    --hover-background: rgba(0,55,117, 0.3);
 }
 
-/* Menu modal */
-.menu-modal{
-    position: absolute;
-    top: -1000px;
-    height: 70vh;
-    background-color: rgb(73,79,94);
-    width: 100%;
-    z-index: 100;
-    left: 0;
-    transition: 0.5s;
+html{
+    font-family: var(--general-font);
+    color: var(--text-color);
 }
 
-.menu-modal > .top-bar{
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
+h1{
+    font-size: 40px;
+    font-weight: 800;
 }
 
-.close > img{
-    width: 32px;
-    transition: 0.2s;
+a{
+    text-decoration: none;
 }
 
-.close > img:hover{
-    cursor: pointer;
-    scale: 1.1;
-    transition: 0.2s;
+a:visited{
+    color: inherit;
 }
 
-.add-project > img{
-    width: 40px;
+ul li{
+    list-style: none;
 }
 
-.add-project > img:hover{
-    cursor: pointer;
+.overflow-hidden{
+    overflow: hidden;
 }
 
-.menu-modal > h2{
-    padding: 16px 32px;
-    text-align: center;
-    border: 3px solid #494F5E;
-    border-radius: 8px;
-    background-color: #84A5AB;
-    font-size: 32px;
-    margin: 16px 16px 0 16px;
+.activate{
+    background-color: var(--primary-color);
 }
 
-.menu-modal > .list-projects{
-    padding: 16px 32px;
-    margin-top: 24px;
-    text-align: center;
-    display: grid;
-    gap: 16px;
+.activate p{
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
-.menu-modal > .list-projects > a{
-    text-decoration: underline;
-    color: rgb(207, 207, 207);
-    font-size: 24px;
-    border: 3px solid #494F5E;
-    border-radius: 8px;
-    padding: 16px;
-}
-
-.menu-modal > .list-projects > a:hover{
-    background-color: #84A5AB;
-}   
-
-#clicked{
-    background-color: #84A5AB;
-    color: rgb(73,79,94);
-}
-
-/* pop-up styling */
-.hidden{
+#hidden{
     display: none;
 }
 
-#pop-up{
-    width: 100%;
-    position: absolute;
-    background-color: rgba(73,79,94, 1);
-    top: 0;
-    z-index: 100;
-}
+/* Sidebar styling */
 
-/* Header stuff */
-header{
-    border-bottom: 4px solid #494F5E;
-    background-color: rgba(73,79,94, 0.8);
-    padding: 16px;
-    position: relative;
-}
-
-header > h1{
-    color: #e7d3cf;
-    font-size: 40px;
-    text-align: center;
-}
-
-header > img{
-    position: absolute;
-    width: 40px;
-    top: calc(50% - 20px);
-}
-
-header > img:hover{
-    cursor: pointer;
-}
-
-/* Main content container and children */
-.project{
-    position: relative;
-    background-color: #84A5AB;
-    width: 80%;
-    border: 3px solid #494F5E;
-    margin: 32px auto 0 auto;
-    padding: 16px;
-    border-radius: 16px;
-}
-
-.top-desc{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    font-weight: 800;
-    gap: 4px;
-}
-
-.top-desc > .date, 
-.top-desc > .completion, 
-.top-desc > .add-task{
-    display: flex;
-    align-items: center;
-    border: 2px solid #494F5E;
-    padding: 8px 2px;
-    border-radius: 8px;
-    user-select: none;
-    text-align: center;
-}
-
-.top-desc > .date{
-    color: #e7d3cf;
-    background-color: rgba(73,79,94, 0.8);
-}
-
-.top-desc > .completion{
-    /* Incomplete style */
-    background-color: rgb(182, 61, 61); 
-    color: rgb(207, 207, 207);
-
-    /* Complete style */
-    /* background-color: rgb(52, 247, 110);
-    color: rgb(49, 49, 49); */
-}
-
-.top-desc > .completion:hover,
-.top-desc > .date:hover, 
-.top-desc > .add-task:hover{
-    cursor: pointer;
-}
-
-.top-desc > .completion:active,
-.top-desc > .date:active, 
-.top-desc > .add-task:active{
-    scale: 0.9;
-    transition: 0.1s;
-}
-
-.top-desc > .add-task{
-    background-color: rgb(13, 202, 13);
-    color: rgb(36, 34, 34);
-}
-
-.content > .project > h3{
-    text-align: center;
-    text-decoration: underline;
-    font-size: 24px;
-}
-
-.content > .project h4{
-    text-decoration: underline;
-    margin-top: 32px;
-    font-size: 24px;
-}
-
-.content > h2{
-    padding: 16px 32px;
-    text-align: center;
-    border: 3px solid #494F5E;
-    width: 80%;
-    margin: 32px auto 0 auto;
-    border-radius: 16px;
-    background-color: #84A5AB;
-    font-size: 32px;
-}
-
-.content{
-    background-color: rgb(171, 145, 140);
+.sidebar{
+    background-color: var(--secondary-color);
+    max-width: 280px;
     height: 100vh;
-}
-
-.task-container{
     display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    gap: 8px;
+    grid-template-rows: auto 1fr auto;
+    transform: translateX(-100%);
+    position: absolute;
 }
 
-.task{
-    display: grid;
-    align-items: center;
-    padding: 8px;
-    background-color: rgba(73,79,94, 0.5);
-    color: #d4d4d4;
-    border-radius: 8px;
-    user-select: none;
+.sidebar :is(.top, .middle, .bottom){
+    max-width: 280px;
+    font-weight: 600;
 }
 
-.task:hover{
-    cursor: pointer;
+.sidebar a:hover:not(.activate){
+   background-color: var(--hover-background);
 }
 
-.task:active{
-    scale: 0.95;
+.sidebar img {
+   width: 32px;
 }
 
-.task > p{
-    padding-left: 8px;
+.top > .title > a:hover{
+    background-color: inherit;
 }
 
-.checkbox{
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
+.top > .title img{
+    width: 24px;
 }
 
-.pr-high > h4, .pr-med > h4, .pr-low > h4{
-    margin: 8px 0 8px 0;
-    text-align: center;
-}
-
-.pr-low{
-    padding-bottom: 48px;
-}
-
-.bottom-desc{
+.top > .title{
     display: flex;
     justify-content: space-between;
-}
+    padding: 16px;
+ }
 
-.bottom-desc > .edit{
+ .top > .navigation{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 8px 16px;
+    gap: 8px;
+ }
+
+ .top > .navigation > a,
+ .middle > .projects > .item > a{
+    display: flex;
+    align-items: center;
     padding: 8px;
-    border: 2px solid #494F5E;
+    text-align: center;
     border-radius: 8px;
-    font-weight: 800;
+    transition: 0.3s ease;
+ }
+
+ .top > .navigation > a > img{
+    margin-right: 16px;
+ }
+
+.middle{
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.bottom-desc > .edit:hover{
-    cursor: pointer;
-    color: #e7d3cf;
-    background-color: rgba(73,79,94, 0.8);
+.projects{
+    margin-top: 16px;
 }
 
-.delete > img{
+.projects > .item{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.projects > .item .delete{
     width: 32px;
+    padding: 8px;
 }
 
-.delete > img:hover{
+.projects > .item > li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.projects > .item > li:hover{
+    cursor: pointer;
+    background-color: var(--hover-background);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.projects > .item p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bottom{
+    padding: 32px 16px;
+}
+
+.bottom > a{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.bottom > a > img{
+    margin-right: 16px;
+    padding: 4px;
+}
+
+.bottom > .add-project{
+    display: flex;
+    justify-content: center;
+}
+
+.bottom > .add-project input{
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.bottom > .add-project img{
+    width: 32px;
+    padding: 8px;
+}
+
+/* main content styling */
+.content{
+    display: flex;
+    justify-content: right;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+}
+
+.content > .header button{
+    background-color: inherit;
+    border: none;
     cursor: pointer;
 }
 
-.priority{
-    width: 60%;
-    margin: 0 auto;
-    font-size: 16px;
+.content > .header button:hover{
+    opacity: 0.7;
 }
 
-/* Dom manipulation classes */
-.show{
-    transition: 0.3s;
-    top: 0;
+.content > .header button:active{
+    scale: 0.9;
 }
 
-.dim{
-    opacity: 0.1;
-    transition: 0.3s;
+.content > .header img{
+    width: 48px;
+    padding: 8px;
 }
 
-.complete{
-    background-color: rgb(22, 177, 22);
+
+
+
+@media screen and (min-width: 700px){
+    .sidebar{
+        max-width: 350px;
+    }
+    .sidebar :is(.top, .middle, .bottom){
+        max-width: 350px;
+    }
+}
+
+@media screen and (min-width: 950px){
+    .sidebar > .top > .title > a{
+        display: none;
+    }
 }
