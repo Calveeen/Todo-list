@@ -16,7 +16,6 @@
                 <div class="top">
                     <div class="title">
                         <h1>TODO</h1>
-                        <a href="#"><img src="./img/close.png" alt="exit button"></a>
                     </div>
                     <div class="navigation">
                         <a href="#">
@@ -155,12 +154,60 @@
                     <h2>Home</h2>
                 </div>
                 <div class="workspace">
-                    
+                    <div class="add-task">
+                        <button class="create">
+                            <img src="./img/add.png" alt="">
+                            Add New Task
+                        </button>
+                    </div>
+                    <div class="task-list">
+                        <div class="tasks">
+                            <input type="checkbox">
+                            <div class="info">
+                                <h4>Title</h4>
+                                <p class="date">Date</p>
+                                <p class="notes">Description/Notes</p>
+                                <p class="priority">High</p>
+                            </div>
+                            <div class="customize">
+                                <img src="./img/edit-button.png" alt="" class="edit">
+                                <img src="./img/delete.png" alt="" class="delete">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="modal">
+            <div class="task-modal" id="hide-modal">
+                <h3>New Task</h3>
+                <form action="#" class="task-modal-form" autocomplete="off">
+                    <div class="task-detail">
+                        <label for="task-title">Title</label>
+                        <input type="text" class="task-title" name="task-title">
+                    </div>
+
+                    <div class="task-detail">
+                        <label for="task-notes">Notes</label>
+                        <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                    </div>
+
+                    <div class="task-detail">
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <div class="task-detail">
+                        <label for="due-date">Due Date</label>
+                        <input type="date" class="due-date" name="due-date">
+                    </div>
+                    <input type="button" class="submit" value="Create Task">
+                </form>
             </div>
+            <div class="dark-overlay"></div>
         </div>
 
         <script src="./main.js"></script>
