@@ -77,9 +77,4 @@ export function taskDom(getTitle, getNotes, getPriority, getDueDate){
     taskList.append(task);
 }
 
-export function sortDom(){
-    const date = [...document.querySelectorAll(".date")];
-    const tasks = [...document.querySelectorAll(".tasks")];
-    const taskList = document.querySelector(".task-list");
 
-}
